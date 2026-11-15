@@ -2,9 +2,9 @@
 
 MIT 2.132 and 2.133 · Ian Hunter
 
-[Open MICA Sound Speed downloads](https://github.com/IanWHunter/mica-course-downloads/releases/tag/sound-speed-v46)
+[Open MICA Sound Speed downloads](https://github.com/IanWHunter/mica-course-downloads/releases/tag/sound-speed-v47)
 
-Choose **Mac — Apple silicon**, **Mac — Intel**, **Windows — x64**, or **Linux — x64** on the experiment's release page. Extract the archive completely and open the app inside it. The download includes the app and its language runtime.
+Choose **Mac — Apple silicon**, **Mac — Intel**, **Windows — x64**, or **Linux — x64** on the experiment's release page. Extract the archive completely and open the app inside it. The download includes the app, its tested Julia runtime and its packages. A separate Julia installation is not required.
 
 Connect the workstation's USB cables. The app checks the vendor software and offers downloads when setup or an update is needed. Complete the vendor installer and reopen the app when prompted.
 
