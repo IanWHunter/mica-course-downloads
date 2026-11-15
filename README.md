@@ -2,7 +2,7 @@
 
 MIT 2.132 and 2.133 · Ian Hunter
 
-[Open Sound Speed Workstation downloads](https://github.com/IanWHunter/mica-course-downloads/releases/tag/sound-speed-v44)
+[Open Sound Speed Workstation downloads](https://github.com/IanWHunter/mica-course-downloads/releases/tag/sound-speed-v45)
 
 Choose **Mac — Apple silicon**, **Mac — Intel**, **Windows — x64**, or **Linux — x64** on the experiment's release page. Extract the archive completely and open the app inside it. The download includes the app and its language runtime.
 
