@@ -8,7 +8,7 @@ Choose **Mac — Apple silicon**, **Mac — Intel**, **Windows — x64**, or **L
 
 Connect the workstation's USB cables. The app checks the vendor software and offers downloads when setup or an update is needed. Complete the vendor installer and reopen the app when prompted.
 
-MICA Sound Speed v48 adds carriage-position plots starting at 0 mm, an apparent source-position estimate from absolute arrival delays, and a separate %VAF-versus-position plot. It retains the Julia measurement engine validated by a complete 250 mm, 51-position Mac workstation sweep in v47. All four v48 builds pass software and packaged startup checks. The new presentation awaits the instructor’s manual check; Windows/Linux physical workstation tests remain pending. This is an instructor bench preview. The Mac preview uses the app-specific opening instructions below.
+MICA Sound Speed v48 adds carriage-position plots starting at 0 mm, an apparent source-position estimate from absolute arrival delays, and a separate %VAF-versus-position plot. It retains the Julia measurement engine validated by a complete 250 mm, 51-position Mac workstation sweep in v47. All four v48 builds pass software and packaged startup checks. The v48 instructor test stopped at position 15 mm because the input records contained missing/corrupt samples. A v49 timing-protection correction is being built; its hardware test is pending. The full-sweep-tested [v47 baseline](https://github.com/IanWHunter/mica-course-downloads/releases/tag/sound-speed-v47) remains available. Windows/Linux physical workstation tests remain pending. This is an instructor bench preview. The Mac preview uses the app-specific opening instructions below.
 
 ### Mac: opening the app for the first time
 
