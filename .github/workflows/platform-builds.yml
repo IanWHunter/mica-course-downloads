@@ -1,0 +1,65 @@
+name: Native course app packages
+run-name: Course platform build ${{ inputs.build_id }}
+on:
+  workflow_dispatch:
+    inputs:
+      build_id:
+        description: Unique private build request
+        required: true
+        type: string
+      cipher_sha:
+        description: SHA256 of the encrypted input
+        required: true
+        type: string
+      source:
+        description: Selected source revision
+        required: true
+        type: string
+permissions:
+  contents: read
+concurrency:
+  group: course-platform-build
+  cancel-in-progress: false
+jobs:
+  package:
+    if: github.repository == 'IanWHunter/mica-course-downloads' && github.event_name == 'workflow_dispatch' && github.event.repository.private == false
+    permissions:
+      contents: write
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - runner: windows-2022
+            target: windows-x64
+          - runner: ubuntu-22.04
+            target: linux-x64
+    runs-on: ${{ matrix.runner }}
+    timeout-minutes: 60
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
+        with:
+          python-version: '3.12'
+          architecture: x64
+      - uses: julia-actions/setup-julia@4c0cb0fce8556fdb04a90347310e5db8b1f98fb9
+        with:
+          version: '1.12.6'
+          arch: x64
+      - uses: ilammy/msvc-dev-cmd@0b201ec74fa43914dc39ae48a89fd1d8cb592756
+        if: runner.os == 'Windows'
+        with:
+          arch: x64
+      - name: Install authenticated input transport
+        run: python -m pip install cryptography==50.0.2
+      - name: Build and check the native app
+        env:
+          GH_TOKEN: ${{ github.token }}
+          MICA_BUILD_INPUT_KEY: ${{ secrets.MICA_BUILD_INPUT_KEY }}
+          BUILD_ID: ${{ inputs.build_id }}
+          INPUT_SHA: ${{ inputs.cipher_sha }}
+          SOURCE_SHA: ${{ inputs.source }}
+          TARGET: ${{ matrix.target }}
+        shell: bash
+        run: python build_tools/platform_runner.py --tag "$BUILD_ID" --cipher-sha "$INPUT_SHA" --source "$SOURCE_SHA" --target "$TARGET"
